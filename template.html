@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        main {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        #image {
+            width: 512px;
+            height: 512px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+
+        #description {
+            max-width: 900px;
+            font-size: 22px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="image-title">Título</h1>
+    </header>
+    <main>
+        <img id="image" src="" alt="">
+        <p id="description">Descrição</p>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const title = urlParams.get('title');
+            const img = urlParams.get('img');
+            const desc = urlParams.get('desc');
+
+            document.getElementById('image-title').textContent = title;
+            document.getElementById('image').src = img;
+            document.getElementById('image').alt = title;
+            document.getElementById('description').textContent = desc;
+        });
+    </script>
+</body>
+</html>
